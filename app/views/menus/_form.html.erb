@@ -1,0 +1,43 @@
+<center><%= form_with(model: @menu) do |form| %>
+
+  <% if menu.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(menu.errors.count, "error") %> prohibited this menu from being saved:</h2>
+      <ul>
+        <% menu.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<div class="field">
+    <td><%= form.label :name,:class => "btn btn-info" %></td>
+    <td><%= form.text_field :name %></td>
+  </div>
+  <br>
+
+  <div class="field">
+    <td><%= form.label :food_name,:class => "btn btn-info" %></td>
+    <td><%= form.text_field :food_name %></td>
+  </div>
+  <br>
+
+  <div class="field">
+      <td><%= form.label :price ,:class => "btn btn-info" %></td>
+      <td><%= form.text_field :price %></td>
+  </div><br>
+
+  <div class="field">
+      <td><%= form.label :image ,:class => "btn btn-info"%></td>
+      <td><%= form.file_field :image %></td>
+  </div><br>
+   
+
+  
+  <div  class ="actions">
+    <%= form.submit class: 'btn btn-primary' %>
+  </div><br>
+<% end %>
+
+</center>

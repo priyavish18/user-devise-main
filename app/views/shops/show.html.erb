@@ -1,0 +1,22 @@
+<center><p id="notice"><%= notice %></p>
+
+<p>
+  <strong>name:</strong>
+  <%= @menu.name %>
+</p>
+
+
+<p>
+  <strong>food_name:</strong>
+  <%= @menu.food_name %>
+</p>
+
+
+<p>
+  <strong>Price:</strong>
+  <%= @menu.price %><br>
+
+
+<%= link_to 'Edit', edit_menu_path(@menu) ,:class => "btn btn-success" %> |
+<%= link_to 'Back', shops_path ,:class => "btn btn-info"%>
+</center>

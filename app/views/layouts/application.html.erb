@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>Food-Zone</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+      <%= csrf_meta_tags %>
+      <%= csp_meta_tag %>
+
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <style type="text/css">
+    
+    .mt-n1 {
+    margin-top: -0.25rem !important;
+  }
+  </style>
+  </head>
+
+  <body>
+  <div class="container me-auto mb-2 mb-lg-0">
+   
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid"> 
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <img src="https://t3.ftcdn.net/jpg/02/41/30/72/360_F_241307210_MjjaJC3SJy2zJZ6B7bKGMRsKQbdwRSze.jpg" style="width:100px; height: 50px; margin-left: 10px;">
+                  <ul class="navbar-nav me-auto mb-2 mb-lg-0" style="display: flex;    justify-content: space-between; align-items: center ;">
+                  <li style="margin: 50 auto;" ><%= link_to 'Home', root_path %></li> |
+                  <li style="margin: 50 auto;" ><%= link_to 'Shop', shops_path, :class =>".ppppp"%></li> |
+                  <li style="margin: 50 auto;" ><%= link_to 'create wish', new_menu_path %></li> |
+                  <li style="margin: 50 auto;" ><%= link_to 'Wish list', menus_path %></li> |
+                  </ul>
+
+            <form class="form-inline" action="/search" method="GET">
+                <div class="container" class="justify-content-center">
+                  <div class="row height d-flex justify-content-center 
+                      align-items-center">
+                        <table>
+                              <td><input type="/search" class="form-control" placeholder="name" aria-label="Search" 
+                              name="query" method = "GET" class="form-control form-control-lg"> </td>
+                          <td><button class="btn btn-primary col-md-12  " type="submit" >Search</button> </td>
+                      </table>
+
+                  </div>
+                </div>
+            </form>
+        
+
+          <% if user_signed_in? %>
+                    Logged in as &nbsp <strong><%= current_user.email %></strong>
+              | <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %>|
+              <%= link_to "Logout", destroy_user_session_path, :method => :delete, :class => 'navbar-link'  %> |
+                    <% else %>
+              <%= link_to "Sign up", new_user_registration_path, :class => 'nvbar-link'  %> |
+              <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
+          <% end %>  
+        </div>
+      </nav>
+     </div>
+       <div
+              class="p-5 text-center bg-image"
+              style="
+                background-image: url('https://images.immediate.co.uk/production/volatile/sites/30/2020/08/processed-food700-350-e6d0f0f.jpg?quality=90&resize=556,505'); height: 150px; margin-top: 30px;">
+
+          <h1 style="color: black; class="mb-5" >Food Zone</h1></div>
+       <div class = "mask" style="background-color: #fffff0;">
+    <div class="d-flex justify-content-center align-items-center h-100">
+  <div class="text-black">
+    </div>
+      </div>
+         <div>
+         <div class="row">
+        <p class="notice"><%= notice %></p>
+        <p class="alert"><%= alert %></p> 
+          
+        
+                 <%= yield %>
+    
+         </div>
+      </div>
+    </body>
+</html>
+    
