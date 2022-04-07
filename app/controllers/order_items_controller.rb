@@ -18,6 +18,9 @@ class OrderItemsController < ApplicationController
         # session[:order_id] = @order.id
 
     end
+
+    def destroy
+    end
     
 private
     def order_params

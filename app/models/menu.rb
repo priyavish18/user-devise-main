@@ -6,6 +6,8 @@ class Menu < ApplicationRecord
 
 end
 
+
+
 def self.search_by_rate(search)
 	if search
 		search_rate = search.to_i
@@ -17,5 +19,9 @@ def self.search_by_rate(search)
 		end
 	else
         Menu.all
+        #check
+
+
+
     end
    end
